@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="studentForm">
+        <fieldset>
+            <label for="">Sign up</label> <br />
+            <input type="text" placeholder="First Name" id="firstName">
+            <input type="text" placeholder="Last Name" id="lastName">
+            <input type="date" id="inputDate">
+            <input type="text" placeholder="Academy" id="inputAcademy">
+            <button type="button" id="signUpBtn">Sign Up</button>
+            <p id="signUpMsg"></p>
+        </fieldset>
+    </form>
+
+    <form action="" id="professorForm">
+        <fieldset>
+            <label for=""> Professor login</label>
+            <input type="text" id="profUser">
+            <input type="password" id="profPassword">
+            <button type="button" id="loginBtn">Login</button>
+            <p id="profMsg"></p>
+        </fieldset>
+    </form>
+    <div id="profDiv">
+        <ul id=studentList></ul>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
