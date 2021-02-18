@@ -1,0 +1,84 @@
+body {
+    background-image: url("/images/backgroundImage.jpg");
+}
+#logoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#logoImage{
+    height: 150px;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+#people{
+    width: 35%;
+}
+#ships{
+    width: 45%;
+}
+#tablesContainer{
+    display: flex;
+    justify-content:left;
+    align-items: left;
+}
+tr{
+    border: 2px, solid, green;
+}
+#tablesContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+.generatedTable td{
+    color: white;
+    border: 1px solid white;
+    font-size: larger;
+    font-style: bolder;
+    text-align: center;
+}
+
+.generatedTable thead{
+    font-size: 1.5em
+}
+
+#navigationNextPrev{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+#nextPeopleBtn{
+    font-size: larger;
+    font-style: bolder;
+    color: white;
+    border: 2px solid white;
+    box-shadow: 3px 2px 2px 0px white ;
+    background-color: transparent;
+
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: 24%;
+
+}
+#previousPeopleBtn{
+    font-size: larger;
+    font-style: bolder;
+    color: white;
+    border: 2px solid white;
+    box-shadow: -3px 2px 2px 0px white ;
+    background-color: transparent;
+    
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 24%;
+    
+}
+
