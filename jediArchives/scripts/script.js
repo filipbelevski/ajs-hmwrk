@@ -6,21 +6,7 @@ let navigationNextPrev = document.getElementById("navigationNextPrev");
 
 let peopleUrl = "https://swapi.dev/api/people/"
 
-// let calcCapacity = (crew,passengers,) => {
-//     debugger
-//     let splitCrew = 0;
-//     let maxCrew = 0;
-//     let maxPassengers = 0;
-//     for (let i = 0; i < crew.length; i++){
-//         if(crew[i] === "-"){
-//             splitCrew = crew.split("-");
-//         }
-//         return
-//     }
-    
-//     maxCrew += parseInt(splitCrew[1])
-//     console.log(maxCrew)
-// }
+
 let fetchAndPrintPeople = (url) => {
     fetch(url)
         .then(response => response.json())
@@ -36,6 +22,7 @@ let fetchAndPrintPeople = (url) => {
                         <td>Appearances</td>
                     </thead>
                         ${(data.results).map((people)=>{
+
                             return (`
                                 <tr>
                                     <td>${people.name} </td>
@@ -54,6 +41,20 @@ let fetchAndPrintPeople = (url) => {
         )
         .catch(error => console.log(error))
 }
+
+let shipCapacity = (ships)=>{
+    let crew = parseInt(ships.crew)
+    let passengers = parseInt(ships.passengers)
+    let fullCrew = 0;
+    if(!isNaN(crew)){
+        fullCrew += crew
+    }
+    if(!isNaN(passengers)){
+        fullCrew += passengers
+    }
+    return fullCrew
+}
+
 let fetchAndPrintShips = (url) => {
     fetch(url)
         .then (response => response.json())
@@ -65,6 +66,7 @@ let fetchAndPrintShips = (url) => {
                         <td>Model</td>
                         <td>Manufacturer</td>
                         <td>Cost</td>
+                        <td>Capacity</td>
                         <td>Class</td>
                     </thead>
                         ${(data.results).map((ships)=> {
@@ -75,6 +77,7 @@ let fetchAndPrintShips = (url) => {
                                         <td>${ships.model}</td>
                                         <td>${ships.manufacturer}</td>
                                         <td>${ships.cost_in_credits}</td>
+                                        <td>${shipCapacity(ships)}
                                         <td>${ships.starship_class}</td>
                                     </tr>
                                 `
