@@ -1,3 +1,4 @@
+
 let navigationService = {
     // properties
     peopleBtn: document.getElementById("peopleBtn"),
@@ -8,8 +9,11 @@ let navigationService = {
     lastPageBtn: document.getElementById("lastPageBtn"),
     currentPage: 1,
     pageType: "",
-    lastPagePeople: 9,
-    lastPageShips: 4,
+    getLastPage: function (response) {
+        return Math.floor(response.count / 10) + 1 
+    },
+    lastPage: "",
+
 
     //methods
     init: function () {
@@ -38,10 +42,10 @@ let navigationService = {
         this.lastPageBtn.addEventListener("click", function (){
             uiService.toggleLoader(true);
             if(navigationService.pageType === "people"){
-                starWarsService.getPeople(navigationService.lastPagePeople);
+                starWarsService.getPeople(navigationService.lastPage);
             }
             if(navigationService.pageType === "ships"){
-                starWarsService.getShips(navigationService.lastPageShips)
+                starWarsService.getShips(navigationService.lastPage)
             }
         })
 
@@ -98,6 +102,7 @@ let starWarsService = {
         $.ajax({
             url: peopleUrl,
             success: function (response){
+                navigationService.lastPage = navigationService.getLastPage(response)
                 console.log(`Request success`);
                 console.log(response);
                 uiService.displayPeopleInfo(response.results);
@@ -115,12 +120,13 @@ let starWarsService = {
         fetch(shipUrl)
             .then(response => response.json())
             .then(data => {
+                navigationService.lastPage = navigationService.getLastPage(data)
                 uiService.displayShipsInfo(data.results);
                 navigationService.togglePagingButtons(data);
                 uiService.toggleLoader(false);
             })
             .catch(error => console.error(error))
-    }
+    },
 }
 let uiService = {
     // properties

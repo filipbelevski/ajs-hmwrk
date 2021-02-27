@@ -1,39 +1,59 @@
-let stopWatch = {
-    startBtn: document.getElementById("start"),
-    stopBtn: document.getElementById("stop"),
-    resetBtn: document.getElementById("reset"),
-    
+const secondStopWatch = {
     seconds: 0,
     minutes: 0,
     intVal: null,
-    init: function(){
-        this.startBtn.addEventListener('click', () => {
-            this.intVal = setInterval(() => {
-                this.seconds += 1
-                if(this.seconds === 60){
-                    this.minutes += 1;
-                    this.seconds = 0;
-                }
-                stopWatchUi.timer.innerHTML = `${this.minutes}:${this.seconds}`
-            },20)
-            this.startBtn.disabled = true
-        }),
-        
-        this.stopBtn.addEventListener('click', () => {
-            clearInterval(this.intVal)
-            this.startBtn.disabled = false
-        }),
-        this.resetBtn.addEventListener('click', () => {
-            clearInterval(this.intVal)
-            this.seconds = 0
-            this.minutes = 0
-            stopWatchUi.timer.innerHTML = `${this.minutes}:${this.seconds}`
-            this.startBtn.disabled = false
-        })
+
+    init: function (cmd){
+        switch (cmd) {
+            case "start": 
+                secondStopWatch.intVal = setInterval(() => {
+                secondStopWatch.seconds += 1
+                    if(secondStopWatch.seconds === 60){
+                        secondStopWatch.minutes += 1;
+                        secondStopWatch.seconds = 0;
+                    }
+                    stopWatchUi.updateDisplay(); //// return, dokolku ne povikam update display nema soodvetno da se updejtira html sekogas koga kje se izvrsi kodot, iako kje si se vrsi vo pozadina
+                },20)
+                break;
+            case "stop":
+                clearInterval(this.intVal);
+                break;
+            case "reset": 
+                clearInterval(this.intVal);
+                secondStopWatch.seconds = 0;
+                secondStopWatch.minutes = 0;
+                stopWatchUi.updateDisplay(); /// return
+                break;
+            default:
+                break;
+        }
     }
 }
 
-let stopWatchUi = {
-    timer: document.getElementById("timer"),
+let stopWatchController = {
+    start: stopWatchUi.startBtn.addEventListener('click',() => {
+        secondStopWatch.init("start")
+        stopWatchUi.startBtn.disabled = true;
+    }),
+    stop: stopWatchUi.stopBtn.addEventListener('click', () => {
+        secondStopWatch.init("stop")
+        stopWatchUi.startBtn.disabled = false;
+    }),
+    reset: stopWatchUi.resetBtn.addEventListener('click', () => {
+        secondStopWatch.init("reset")
+        stopWatchUi.startBtn.disabled = false
+    })
 }
-stopWatch.init();
+
+let stopWatchUi = {
+    startBtn: document.getElementById("start"),
+    stopBtn: document.getElementById("stop"),
+    resetBtn: document.getElementById("reset"),
+    timer: document.getElementById("timer"),
+
+    updateDisplay: ()=> {
+        this.timer.innerHTML = `${secondStopWatch.minutes}:${secondStopWatch.seconds}`
+    }
+}
+
+
