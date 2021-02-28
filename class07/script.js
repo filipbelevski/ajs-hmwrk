@@ -30,30 +30,28 @@ const secondStopWatch = {
     }
 }
 
-let stopWatchController = {
-    start: stopWatchUi.startBtn.addEventListener('click',() => {
-        secondStopWatch.init("start")
-        stopWatchUi.startBtn.disabled = true;
-    }),
-    stop: stopWatchUi.stopBtn.addEventListener('click', () => {
-        secondStopWatch.init("stop")
-        stopWatchUi.startBtn.disabled = false;
-    }),
-    reset: stopWatchUi.resetBtn.addEventListener('click', () => {
-        secondStopWatch.init("reset")
-        stopWatchUi.startBtn.disabled = false
-    })
-}
-
 let stopWatchUi = {
     startBtn: document.getElementById("start"),
     stopBtn: document.getElementById("stop"),
     resetBtn: document.getElementById("reset"),
     timer: document.getElementById("timer"),
-
-    updateDisplay: ()=> {
+    
+    updateDisplay:  () => {
         this.timer.innerHTML = `${secondStopWatch.minutes}:${secondStopWatch.seconds}`
     }
 }
 
-
+let stopWatchController = {
+    start: stopWatchUi.startBtn.addEventListener('click',() => {
+        secondStopWatch.init("start");
+        stopWatchUi.startBtn.disabled = true;
+    }),
+    stop: stopWatchUi.stopBtn.addEventListener('click', () => {
+        secondStopWatch.init("stop");
+        stopWatchUi.startBtn.disabled = false;
+    }),
+    reset: stopWatchUi.resetBtn.addEventListener('click', () => {
+        secondStopWatch.init("reset");
+        stopWatchUi.startBtn.disabled = false
+    })
+}
