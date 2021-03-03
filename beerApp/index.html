@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width
+    , initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./src/styles/style.css">
+    <title>Ultimate beer collection</title>
+</head>
+<body>
+    <div class="container-lg nav-container">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <a class="navbar-brand" href="#" id="mainPage">Beer bar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a id="getBeerButton" class="nav-link" href="#">Beers <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a id="getRandomBeerButton" class="nav-link" href="#">Random beer</a>
+                  </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="searchButton">Search</button>
+                </form>
+        </nav>
+
+    </div>
+    <div class="container-lg paginationAndSortContainer beerLoadContent" id="pageAndSort">
+      <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Page Size
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a id="showFive"class="dropdown-item" href="#">show 5</a>
+            <a id="showTen"class="dropdown-item" href="#">show 10</a>
+            <a id="showTwenty"class="dropdown-item" href="#">show 20</a>
+          </div>
+        </div>
+      <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sort by
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" id="sortNameAscending" href="#">Name asc</a>
+            <a class="dropdown-item" id="sortNameDescending" href="#">Name desc</a>
+            <a class="dropdown-item" id="sortAlcoholAscending" href="#">Alcohol asc</a>
+            <a class="dropdown-item" id="sortAlcoholDescending" href="#">Alcohol desc</a>
+            <a class="dropdown-item" id="sortBitternessAscending" href="#">Bitterness asc</a>
+            <a class="dropdown-item" id="sortBitternessDescending" href="#">Bitterness desc</a>
+            <a class="dropdown-item" id="sortDateOldest" href="#">Production date oldest</a>
+            <a class="dropdown-item" id="sortDateNewest">Production date newest</a>
+          </div>
+        </div>
+  </div>
+    <div class="container-lg  main-content" id="mainContent">
+        <h2 class="main-header">Hello, this is beer world!</h2>
+        <h5>This is a simple beer page, you can get all the information for beers here.</h5>
+        <hr>
+        <img src="./src/img/frontPage.jpg
+        " alt="" height="200px" width="100%">
+        
+    </div>
+    <div class="container-lg">
+      <div class="row row-cols-1 row-cols-lg-3" id="cardDeck">
+      </div>
+    </div>
+    
+    <div class="container-lg" id="singleBeerResult">
+      
+    </div>
+
+    <div class="contianer-lg buttons" id="nextPreviousButtons">
+      <button type="button" id="previousButton" class="btn btn-outline-primary btn-lg">Previous</button>
+      <button type="button" id="nextButton" class="btn btn-outline-primary btn-lg">Next</button>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="src/app.js"></script>
+</body>
+</html>

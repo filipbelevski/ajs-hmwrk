@@ -1,0 +1,54 @@
+.main-content {
+    margin-top: 5vh;
+    padding: 2rem;
+    background-color: #E9ECEF;
+    border-radius: 1.5%;
+}
+
+.paginationAndSortContainer{
+    display:none;
+    padding: 0.5rem;
+    background-color:#E9ECEF;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    display: flex;
+}
+.paginationAndSortContainer .dropdown{
+    margin:0vh 2vh;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#nextButton, #previousButton {
+    display: none;
+    margin: 2vh;
+}
+#singleBeerResult {
+    display: none;
+}
+#pageAndSort{
+    display: none;
+}
+.card{
+    border-radius: 1%;
+    padding: 2vh;
+}
+.card-text{
+    height: 10vh;
+    overflow: auto;
+}
+.card-img-top {
+    position: relative;
+    left: 15vh;
+    width: 10vh
+}
+.alerts{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    display: none;
+}
+
