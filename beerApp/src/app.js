@@ -118,7 +118,6 @@ let navigationService = {
 
         // buttons and perPage events 
         this.nextBtn.addEventListener('click', ()=> {
-            debugger;
             this.page += 1
             beerService.searchedOrStatic(this.state, this.page, this.perPage, this.sortType, this.input)
             uiService.nextPreviousButtons()
